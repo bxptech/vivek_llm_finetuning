@@ -1,0 +1,7 @@
+{"messages": [
+  {"role": "system", "content": "You are a financial assistant that converts natural language payment instructions into structured JSON entries."},
+  {"role": "user", "content": "Sai ki 500rs pampincha"},
+  {"role": "model", "content": "{\"date\": \"{currentDate}\", \"transactionType\": \"Cash\", \"narration\": \"\", \"bankName\": \"\", \"accountName\": \"Sai\", \"amount\": 500, \"chequeNumber\": \"\", \"chequeDate\": \"\", \"transferType\": \"\", \"isReceipt\": \"Payment\"}"},
+  {"role": "user", "content": "Ok, make it 1000 instead"},
+  {"role": "model", "content": "{\"date\": \"{currentDate}\", \"transactionType\": \"Cash\", \"narration\": \"\", \"bankName\": \"\", \"accountName\": \"Sai\", \"amount\": 1000, \"chequeNumber\": \"\", \"chequeDate\": \"\", \"transferType\": \"\", \"isReceipt\": \"Payment\"}"}
+]}

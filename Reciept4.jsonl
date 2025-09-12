@@ -1,0 +1,2349 @@
+[{
+	"input" : "Generate payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Create payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Make payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Produce payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Form payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Build payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Prepare payment Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "paid 100Rs cash to Durga",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Durga",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "sent 100Rs to Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "100rs sent to sai.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Done Payment of 100Rs to Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "100rs debited to sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Payment sent to Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "I paid 100rs to sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "100rs of payment acknowledge to sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "100rs transferred to sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment of 100rs settled to sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment entry create cheyi",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment generate cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment prepare cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment record cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment update cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment form fill cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment details enter cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment voucher create cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment slip ready cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment note cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment bill create cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment issue cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "payment transaction note cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs pampinchanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs pampanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs pampina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs kottina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs kottina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs ichanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs ichina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs vesanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs vesina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs vesinanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs kottanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs forward chesanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs handover chesanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs submit chesanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs payment issue chesanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs nagadu ichanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs ichina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs nagadu ichinanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai 100rs appaginchanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs appaginchina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs ivvadam jarigindi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs amount kattanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+
+{
+		"input" : "sent 500rs to sai on August 8th 2025",
+	"output": 
+		{
+		  "date": "08-08-2-25",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},
+{
+	"input" : "Sai ki 100rs balance ichanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs lekka pampincha.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs lekka pampina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs lekka pampinanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs transfer chesanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100Rs transfer chesina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "100Rs Sai ki muttincha",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki 100rs ippinchanu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki paisal pampina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki paisal pampincha",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki paisal pampinchina",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki nooru rupayalu pampinchanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Sai ki dabbbulu pampanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "Paisal pampinanu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "0.0",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	"input" : "sent 100rs to sai,yesterday",
+	"output": 
+		{
+		  "date": "{currentDate-1}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+		}
+},
+{
+	
+		
+	"input" : "sent 100rs to sai,day before",
+	"output": 
+		{
+		  "date": "{currentDate-2}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}	
+},
+{
+		
+	"input" : "sent 100rs to sai,10days before",
+	"output": 
+		{
+		  "date": "{currentDate-10}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+
+},
+{
+	"input" : "10 rojula mundu sai ki 100rs pampinchanu",
+	"output": 
+		{
+		  "date": "{currentDate-10}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},
+{
+		"input" : "ninna sai ki 100rs pampina",
+	"output": 
+		{
+		  "date": "{currentDate-1}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},
+{
+	"input" : "10 rojula kinda 100rs sai ki ichanu",
+	"output": 
+		{
+		  "date": "{currentDate-10}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},
+{		
+         "input" : "10 rojula kritham 100rs sai ki ichanu",
+	     "output": 
+		{
+		  "date": "{currentDate-10}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},
+{
+	"input" : "monna sai ki 100rs kottina",
+	"output": 
+		{
+		  "date": "{currentDate-2}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": "100",
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isreceipt":"payment"
+
+	}
+},{
+	"input" : "Generate Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Create Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Make Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Produce Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Form Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Build Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Prepare Receipt Entry/Bill",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Got 100Rs cash from Durga",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Durga",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Received 100Rs from Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai Sent 100Rs.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Got Payment of 100Rs from Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai credited 100Rs",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Payment received from Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai paid me 100Rs",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Payment of 100Rs acknowledged from Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai transferred 100Rs",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai has settled payment of 100Rs",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Received 100Rs from Sai on 10/08/2025",
+	"output": 
+		{
+		  "date": "10/08/2025",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai transferred 100Rs yesterday",
+	"output": 
+		{
+		  "date": "{currentDate-1}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Today I recieved 100Rs from Sai",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt entry create cheyi",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt generate cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt prepare cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt record cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt update cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt form fill cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt details enter cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt voucher create cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt slip ready cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt note cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt bill create cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt issue cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Receipt transaction note cheyi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs pampinchadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs pampadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs pampinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs kottinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs kottindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs ichadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs ichindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs vesadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs vesinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs vesindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs kottadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs forward chesadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs handover chesadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs submit chesadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs receipt issue chesam.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs nagadu ichadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs nagadu ichindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs nagadu ichinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs appaginchadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs appaginchindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs ivvadam jarigindi.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs amount kattadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs balance ichadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs lekka pampinchadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs lekka pampindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs lekka pampinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100rs transfer chesadu.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs transfer chesindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "100Rs Sai nunchi muttayi",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai daggara nundi 100rs teesukunna.",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai paisal pampinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai paisal pampindu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai paisal pampinchadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai nooru rupayalu pampinchadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai dabbbulu pampadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Paisal pampinadu",
+	"output": 
+		{
+		  "date": "{currentDate}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 0.0,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai 100Rs 05/08/2025 pampindu",
+	"output": 
+		{
+		  "date": "05/08/2025",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+},
+{
+	"input" : "Sai ninna 100Rs ichadu",
+	"output": 
+		{
+		  "date": "{currentDate-1}",
+		  "transactionType": "Cash",
+		  "narration": "",
+		  "bankName": "",
+		  "accountName": "Sai",
+		  "amount": 100,
+		  "chequeNumber": "",
+		  "chequeDate": "",
+		  "transferType": "",
+		  "isReceipt":"Receipt"
+		}
+}
+]
