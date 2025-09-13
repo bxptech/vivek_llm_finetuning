@@ -9,8 +9,8 @@ LOCATION = "us-central1"
 # Fine-tuned model (task-specific)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
-# General-purpose Gemini model (not fine-tuned)
-GENERAL_MODEL = "text-bison-001"  # replace with your deployed general-purpose model if needed
+# General-purpose prebuilt model
+GENERAL_MODEL = "text-bison-001"  # no endpoint path needed
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -31,12 +31,8 @@ st.write("Ask anything — casual, formal, greetings, or task-specific!")
 user_input = st.text_area("Your prompt", placeholder="Type something...")
 
 # Simple keyword-based detection of question type
-def is_casual_or_greeting(text):
-    keywords = ["hi", "hello", "hey", "how are you", "good morning", "good night", "what's up"]
-    return any(k in text.lower() for k in keywords)
-
 def is_task_specific(text):
-    # You can improve this with regex or keywords specific to your fine-tuned task
+    # Add keywords relevant to your fine-tuned task
     task_keywords = ["transaction", "amount", "transfer", "cash", "payment"]
     return any(k in text.lower() for k in task_keywords)
 
@@ -51,7 +47,7 @@ if st.button("Generate"):
                     prompt_text = user_input  # fine-tuned model expects task prompt directly
                 else:
                     model_to_use = GENERAL_MODEL
-                    # General model instructions for casual/formal/greetings
+                    # Prebuilt model instructions for casual/formal/greetings
                     prompt_text = (
                         "You are a friendly and intelligent AI assistant. "
                         "Answer casual questions casually, formal questions formally, "
