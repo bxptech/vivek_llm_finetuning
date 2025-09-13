@@ -5,12 +5,7 @@ from google.genai import types
 # --- Setup ---
 PROJECT_ID = "738928595068"       # your GCP project ID
 LOCATION = "us-central1"          # region where you tuned the model
-
-# Fine-tuned model (your trained one)
-FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
-
-# Base Gemini model for general conversation
-BASE_MODEL = "publishers/google/models/gemini-1.5-pro"
+MODEL_ENDPOINT = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -22,16 +17,11 @@ client = genai.Client(
     api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
 )
 
-# --- Intent Check ---
-def is_payment_query(text: str) -> bool:
-    keywords = ["payment", "bill", "entry", "invoice", "transaction"]
-    return any(kw in text.lower() for kw in keywords)
-
 # --- Streamlit UI ---
-st.set_page_config(page_title="💡 Hybrid Gemini App", page_icon="✨", layout="centered")
+st.set_page_config(page_title="My Gemini App", page_icon="✨", layout="centered")
 
-st.title("💡 Hybrid Gemini App")
-st.write("Ask me about **payments/bills** (JSON output) or just chat casually (normal text).")
+st.title("💡 Fine-Tuned Gemini Demo")
+st.write("Ask your fine-tuned Gemini model anything:")
 
 # Input box
 user_input = st.text_area("Your prompt", placeholder="Type something...")
@@ -41,28 +31,17 @@ if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Route query to correct model
-                if is_payment_query(user_input):
-                    model = FINETUNED_MODEL
-                    st.info("Using **Fine-tuned Payment Model** (JSON output)")
-                else:
-                    model = BASE_MODEL
-                    st.info("Using **Base Gemini Model** (conversational output)")
-
-                # Generate response
                 response = client.models.generate_content(
-                    model=model,
+                    model=MODEL_ENDPOINT,
                     contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
                     config=types.GenerateContentConfig(
                         temperature=0.7,
                         max_output_tokens=512
                     )
                 )
-
                 # Show response
                 st.success("Response:")
                 st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
-
             except Exception as e:
                 st.error(f"Error: {e}")
     else:
