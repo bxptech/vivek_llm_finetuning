@@ -1,67 +1,39 @@
 import streamlit as st
-from google import genai
-from google.genai import types
+import vertexai
+from vertexai.generative_models import GenerativeModel
+from google.oauth2 import service_account
+import json
 
 # --- Setup ---
-PROJECT_ID = "738928595068"       # your GCP project ID
-LOCATION = "us-central1"          # region where you tuned the model
+PROJECT_ID = "738928595068"
+LOCATION = "us-central1"
+TUNED_MODEL_ID = "7079072574528815104"   # should be a MODEL id, not endpoint
 
-# IMPORTANT: Must be a MODEL resource name, not an endpoint
-# Go to Vertex AI → Models in the console to confirm this ID
-FINETUNED_MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/models/7079072574528815104"
-
-# --- Authenticate with API Key ---
-if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
-    st.error("⚠️ Missing GOOGLE_CLOUD_API_KEY in Streamlit secrets.")
+# --- Authenticate ---
+if "GCP_CREDENTIALS" not in st.secrets:
+    st.error("⚠️ Missing GCP_CREDENTIALS in Streamlit secrets.")
     st.stop()
 
-client = genai.Client(
-    vertexai=True,  # required when using Vertex AI models
-    api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
-)
+creds_dict = json.loads(st.secrets["GCP_CREDENTIALS"])
+credentials = service_account.Credentials.from_service_account_info(creds_dict)
+
+vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+
+# Load fine-tuned Gemini model
+model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/models/{TUNED_MODEL_ID}")
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="💡 Fine-Tuned Gemini Demo", page_icon="✨", layout="centered")
-
+st.set_page_config(page_title="💡 Fine-Tuned Gemini Demo", page_icon="✨")
 st.title("💡 Fine-Tuned Gemini Demo")
-st.write("This app connects to your **fine-tuned Gemini model** on Vertex AI.")
 
-# Input box
-user_input = st.text_area("Your prompt", placeholder="Type something like 'Generate payment entry'")
+user_input = st.text_area("Your prompt", placeholder="Type something...")
 
-# Button
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Generate response from fine-tuned model
-                response = client.models.generate_content(
-                    model=FINETUNED_MODEL,
-                    contents=[
-                        types.Content(
-                            role="user",
-                            parts=[types.Part.from_text(text=user_input)]
-                        )
-                    ],
-                    config=types.GenerateContentConfig(
-                        temperature=0.0,          # deterministic JSON
-                        max_output_tokens=512
-                    )
-                )
-
-                # Extract response text
-                if response.candidates and response.candidates[0].content.parts:
-                    output_text = "".join(
-                        [p.text for p in response.candidates[0].content.parts if hasattr(p, "text")]
-                    )
-                else:
-                    output_text = "(No response text received.)"
-
-                # Show response
+                response = model.generate_content(user_input)
                 st.success("Response:")
-                st.code(output_text, language="json")
-
+                st.write(response.text)
             except Exception as e:
                 st.error(f"❌ Error: {e}")
-    else:
-        st.warning("⚠️ Please enter a prompt first.")
