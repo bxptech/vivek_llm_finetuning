@@ -1,40 +1,45 @@
 import streamlit as st
-from google import genai
-from google.genai import types
+import json
+from google.oauth2 import service_account
+from google.cloud import aiplatform
 
 # --- Setup ---
-PROJECT_ID = "738928595068"
-LOCATION = "us-central1"
+PROJECT_ID = "738928595068"       # your GCP project ID
+LOCATION = "us-central1"          # region
+ENDPOINT_ID = "7079072574528815104"  # your deployed endpoint ID
 
-# ⚠️ Replace with your fine-tuned MODEL ID (not endpoint!)
-FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
-
-# --- Auth ---
-if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
-    st.error("⚠️ Missing GOOGLE_CLOUD_API_KEY in Streamlit secrets.")
+# --- Authenticate with Service Account ---
+if "GCP_CREDENTIALS" not in st.secrets:
+    st.error("⚠️ Missing GCP_CREDENTIALS in Streamlit secrets.")
     st.stop()
 
-client = genai.Client(vertexai=True, api_key=st.secrets["GOOGLE_CLOUD_API_KEY"])
+creds_dict = json.loads(st.secrets["GCP_CREDENTIALS"])
+credentials = service_account.Credentials.from_service_account_info(creds_dict)
 
-# --- UI ---
+# Initialize Prediction client
+aiplatform.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+endpoint = aiplatform.Endpoint(endpoint_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/{ENDPOINT_ID}")
+
+# --- Streamlit UI ---
+st.set_page_config(page_title="💡 Fine-tuned Gemini Demo", page_icon="✨", layout="centered")
 st.title("💡 Fine-tuned Gemini Demo")
+st.write("This app uses **your fine-tuned model** deployed on Vertex AI endpoint.")
 
-user_input = st.text_area("Your prompt", placeholder="Type 'Generate payment entry'")
+# Input box
+user_input = st.text_area("Your prompt", placeholder="Type something like 'Generate payment entry'")
 
+# Button
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                response = client.models.generate_content(
-                    model=FINETUNED_MODEL,
-                    contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
-                    config=types.GenerateContentConfig(
-                        temperature=0.0,
-                        max_output_tokens=512
-                    )
-                )
+                # Call endpoint for prediction
+                response = endpoint.predict(instances=[{"prompt": user_input}])
+
+                # Show response
                 st.success("Response:")
-                st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+                st.write(response.predictions)
+
             except Exception as e:
                 st.error(f"Error: {e}")
     else:
