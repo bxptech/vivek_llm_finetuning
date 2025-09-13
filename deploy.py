@@ -46,4 +46,4 @@ if st.button("Generate"):
                 st.error(f"Error: {e}")
     else:
         st.warning("Please enter a prompt first.")
-this is the code iam running now modify this code according to my need
+
