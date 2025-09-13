@@ -6,8 +6,11 @@ from google.genai import types
 PROJECT_ID = "738928595068"       # your GCP project ID
 LOCATION = "us-central1"          # region where you tuned the model
 
-# Your fine-tuned model (not endpoint, must be a model resource name)
+# Fine-tuned model (replace with your actual model ID, not endpoint ID)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
+
+# Base Gemini model for general conversation
+BASE_MODEL = "publishers/google/models/gemini-1.5-pro"
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -19,26 +22,39 @@ client = genai.Client(
     api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
 )
 
-# --- Streamlit UI ---
-st.set_page_config(page_title="💡 Fine-Tuned Gemini Demo", page_icon="✨", layout="centered")
+# --- Intent Check ---
+def is_payment_query(text: str) -> bool:
+    keywords = ["payment", "bill", "entry", "invoice", "transaction"]
+    return any(kw in text.lower() for kw in keywords)
 
-st.title("💡 Fine-Tuned Gemini Demo")
-st.write("This app uses **your fine-tuned model** to respond with payment/bill JSON.")
+# --- Streamlit UI ---
+st.set_page_config(page_title="💡 Hybrid Gemini App", page_icon="✨", layout="centered")
+
+st.title("💡 Hybrid Gemini App")
+st.write("Ask me about **payments/bills** (JSON output) or just chat casually (normal text).")
 
 # Input box
-user_input = st.text_area("Your prompt", placeholder="Type something like 'Generate payment entry'")
+user_input = st.text_area("Your prompt", placeholder="Type something...")
 
 # Button
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Generate response from fine-tuned model
+                # Route query to correct model
+                if is_payment_query(user_input):
+                    model = FINETUNED_MODEL
+                    st.info("Using **Fine-tuned Payment Model** (JSON output)")
+                else:
+                    model = BASE_MODEL
+                    st.info("Using **Base Gemini Model** (conversational output)")
+
+                # Generate response
                 response = client.models.generate_content(
-                    model=FINETUNED_MODEL,
+                    model=model,
                     contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
                     config=types.GenerateContentConfig(
-                        temperature=0.0,          # keep it deterministic for JSON
+                        temperature=0.7,
                         max_output_tokens=512
                     )
                 )
