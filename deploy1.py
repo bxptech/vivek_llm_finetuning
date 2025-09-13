@@ -5,7 +5,6 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.schema import Document
 from langchain.text_splitter import CharacterTextSplitter
-
 # --- Setup ---
 PROJECT_ID = "738928595068"
 LOCATION = "us-central1"
