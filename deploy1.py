@@ -1,15 +1,14 @@
 import streamlit as st
 import json
 from google.oauth2 import service_account
-import vertexai
-from vertexai.generative_models import GenerativeModel
+from google.cloud import aiplatform_v1
 
 # --- Setup ---
-PROJECT_ID = "738928595068"          # your GCP project ID
-LOCATION = "us-central1"             # region
-TUNED_MODEL_ID = "7079072574528815104"  # your tuned model ID
+PROJECT_ID = "738928595068"
+LOCATION = "us-central1"
+ENDPOINT_ID = "YOUR_ENDPOINT_ID"   # after you deploy the tuned model
 
-# --- Authenticate with service account ---
+# --- Authenticate ---
 if "GCP_CREDENTIALS" not in st.secrets:
     st.error("⚠️ Missing GCP_CREDENTIALS in Streamlit secrets.")
     st.stop()
@@ -17,13 +16,9 @@ if "GCP_CREDENTIALS" not in st.secrets:
 creds_dict = json.loads(st.secrets["GCP_CREDENTIALS"])
 credentials = service_account.Credentials.from_service_account_info(creds_dict)
 
-# Initialize Vertex AI with service account
-vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+client = aiplatform_v1.PredictionServiceClient(credentials=credentials)
 
-# Load tuned Gemini model
-model = GenerativeModel(
-    f"projects/{PROJECT_ID}/locations/{LOCATION}/models/{TUNED_MODEL_ID}"
-)
+endpoint = client.endpoint_path(project=PROJECT_ID, location=LOCATION, endpoint=ENDPOINT_ID)
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Fine-Tuned Gemini", page_icon="✨", layout="centered")
@@ -37,9 +32,17 @@ if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                response = model.generate_content(user_input)
+                # Build the request payload (your tuned model may need JSON format)
+                instance = {"prompt": user_input}
+
+                response = client.predict(
+                    endpoint=endpoint,
+                    instances=[instance],
+                )
+
                 st.success("Response:")
-                st.write(response.text)
+                st.write(response.predictions)
+
             except Exception as e:
                 st.error(f"Error: {e}")
     else:
