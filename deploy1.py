@@ -9,8 +9,8 @@ LOCATION = "us-central1"
 # Fine-tuned model (task-specific)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
-# General-purpose prebuilt model
-GENERAL_MODEL = "text-bison-001"  # no endpoint path needed
+# General-purpose prebuilt model (Gemini 2.0)
+GENERAL_MODEL = "gemini-2.0-flash"  # replace with "gemini-2.0-flash-lite" if preferred
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -47,7 +47,7 @@ if st.button("Generate"):
                     prompt_text = user_input  # fine-tuned model expects task prompt directly
                 else:
                     model_to_use = GENERAL_MODEL
-                    # Prebuilt model instructions for casual/formal/greetings
+                    # General-purpose model instructions
                     prompt_text = (
                         "You are a friendly and intelligent AI assistant. "
                         "Answer casual questions casually, formal questions formally, "
