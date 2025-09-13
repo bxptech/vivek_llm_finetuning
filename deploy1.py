@@ -1,65 +1,67 @@
+import streamlit as st
 from google import genai
 from google.genai import types
-import base64
-import os
 
-def generate():
-  client = genai.Client(
-      vertexai=True,
-      api_key=os.environ.get("GOOGLE_CLOUD_API_KEY"),
-  )
+# --- Setup ---
+PROJECT_ID = "738928595068"       # your GCP project ID
+LOCATION = "us-central1"          # region where you tuned the model
+MODEL_ENDPOINT = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
-  msg2_text1 = types.Part.from_text(text="""{\"date\": \"{currentDate}\", \"transactionType\": \"Cash\", \"narration\": \"\", \"bankName\": \"\", \"accountName\": \"\", \"amount\": 0.0, \"chequeNumber\": \"\", \"chequeDate\": \"\", \"transferType\": \"\", \"isReceipt\": \"Receipt\"}""")
+# --- Authenticate with API Key ---
+if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
+    st.error("⚠️ Missing GOOGLE_CLOUD_API_KEY in Streamlit secrets.")
+    st.stop()
 
-  model = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
-  contents = [
-    types.Content(
-      role="user",
-      parts=[
-        types.Part.from_text(text="""receive amount from""")
-      ]
-    ),
-    types.Content(
-      role="model",
-      parts=[
-        msg2_text1
-      ]
-    ),
-    types.Content(
-      role="user",
-      parts=[
-        types.Part.from_text(text="""pay amount to""")
-      ]
-    ),
-  ]
+client = genai.Client(
+    vertexai=True,
+    api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
+)
 
-  generate_content_config = types.GenerateContentConfig(
-    temperature = 1,
-    top_p = 0.95,
-    max_output_tokens = 65535,
-    safety_settings = [types.SafetySetting(
-      category="HARM_CATEGORY_HATE_SPEECH",
-      threshold="OFF"
-    ),types.SafetySetting(
-      category="HARM_CATEGORY_DANGEROUS_CONTENT",
-      threshold="OFF"
-    ),types.SafetySetting(
-      category="HARM_CATEGORY_SEXUALLY_EXPLICIT",
-      threshold="OFF"
-    ),types.SafetySetting(
-      category="HARM_CATEGORY_HARASSMENT",
-      threshold="OFF"
-    )],
-    thinking_config=types.ThinkingConfig(
-      thinking_budget=0,
-    ),
-  )
+# --- Streamlit UI ---
+st.set_page_config(page_title="💡 Fine-Tuned Gemini Demo", page_icon="✨", layout="centered")
 
-  for chunk in client.models.generate_content_stream(
-    model = model,
-    contents = contents,
-    config = generate_content_config,
-    ):
-    print(chunk.text, end="")
+st.title("💡 Fine-Tuned Gemini Demo")
+st.write("Ask your fine-tuned Gemini model anything:")
 
-generate()
+# Input box
+user_input = st.text_area("Your prompt", placeholder="Type something...")
+
+# Button
+if st.button("Generate"):
+    if user_input.strip():
+        with st.spinner("Thinking..."):
+            try:
+                # System prompt to guide the model's behavior
+                system_prompt = types.Content(
+                    role="system",
+                    parts=[types.Part(text=(
+                        "You are a friendly and helpful AI assistant. "
+                        "Answer all user questions clearly and politely, "
+                        "including casual greetings or small talk."
+                    ))]
+                )
+
+                # User prompt
+                user_prompt = types.Content(
+                    role="user",
+                    parts=[types.Part(text=user_input)]
+                )
+
+                # Generate response from the fine-tuned Gemini model
+                response = client.models.generate_content(
+                    model=MODEL_ENDPOINT,
+                    contents=[system_prompt, user_prompt],
+                    config=types.GenerateContentConfig(
+                        temperature=0.7,
+                        max_output_tokens=512
+                    )
+                )
+
+                # Display the model's response
+                st.success("Response:")
+                st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+
+            except Exception as e:
+                st.error(f"Error: {e}")
+    else:
+        st.warning("Please enter a prompt first.")
