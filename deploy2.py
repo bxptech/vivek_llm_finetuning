@@ -3,8 +3,8 @@ from google import genai
 from google.genai import types
 
 # --- Setup ---
-PROJECT_ID = "738928595068"       # your GCP project ID
-LOCATION = "us-central1"          # region where you tuned the model
+PROJECT_ID = "738928595068"
+LOCATION = "us-central1"
 MODEL_ENDPOINT = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
 # --- Authenticate with API Key ---
@@ -31,7 +31,7 @@ if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Use a system prompt to guide behavior
+                # Correct usage of Part.from_text()
                 system_prompt = types.Content(
                     role="system",
                     parts=[types.Part.from_text(
