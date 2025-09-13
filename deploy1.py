@@ -3,8 +3,8 @@ from google import genai
 from google.genai import types
 
 # --- Setup ---
-PROJECT_ID = "738928595068"       # your GCP project ID
-LOCATION = "us-central1"          # region where you tuned the model
+PROJECT_ID = "738928595068"       
+LOCATION = "us-central1"          
 MODEL_ENDPOINT = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
 
 # --- Authenticate with API Key ---
@@ -31,33 +31,29 @@ if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # System prompt to guide the model's behavior
-                system_prompt = types.Content(
-                    role="system",
-                    parts=[types.Part(text=(
-                        "You are a friendly and helpful AI assistant. "
-                        "Answer all user questions clearly and politely, "
-                        "including casual greetings or small talk."
-                    ))]
+                # Prepend instructions directly to user input
+                prompt_text = (
+                    "You are a friendly and helpful AI assistant. "
+                    "Answer all questions clearly and politely, including casual greetings or small talk.\n\n"
+                    f"User: {user_input}"
                 )
 
-                # User prompt
                 user_prompt = types.Content(
                     role="user",
-                    parts=[types.Part(text=user_input)]
+                    parts=[types.Part(text=prompt_text)]
                 )
 
-                # Generate response from the fine-tuned Gemini model
+                # Generate response
                 response = client.models.generate_content(
                     model=MODEL_ENDPOINT,
-                    contents=[system_prompt, user_prompt],
+                    contents=[user_prompt],
                     config=types.GenerateContentConfig(
                         temperature=0.7,
                         max_output_tokens=512
                     )
                 )
 
-                # Display the model's response
+                # Display the response
                 st.success("Response:")
                 st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
 
