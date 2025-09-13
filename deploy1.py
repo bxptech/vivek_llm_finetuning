@@ -6,8 +6,9 @@ from google.genai import types
 PROJECT_ID = "738928595068"       # your GCP project ID
 LOCATION = "us-central1"          # region where you tuned the model
 
-# Your fine-tuned model (not endpoint, must be a model resource name)
-FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
+# IMPORTANT: Must be a MODEL resource name, not an endpoint
+# Go to Vertex AI → Models in the console to confirm this ID
+FINETUNED_MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/models/7079072574528815104"
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -15,7 +16,7 @@ if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
     st.stop()
 
 client = genai.Client(
-    vertexai=True,
+    vertexai=True,  # required when using Vertex AI models
     api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
 )
 
@@ -23,7 +24,7 @@ client = genai.Client(
 st.set_page_config(page_title="💡 Fine-Tuned Gemini Demo", page_icon="✨", layout="centered")
 
 st.title("💡 Fine-Tuned Gemini Demo")
-st.write("This app uses **your fine-tuned model** to respond with payment/bill JSON.")
+st.write("This app connects to your **fine-tuned Gemini model** on Vertex AI.")
 
 # Input box
 user_input = st.text_area("Your prompt", placeholder="Type something like 'Generate payment entry'")
@@ -36,18 +37,31 @@ if st.button("Generate"):
                 # Generate response from fine-tuned model
                 response = client.models.generate_content(
                     model=FINETUNED_MODEL,
-                    contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
+                    contents=[
+                        types.Content(
+                            role="user",
+                            parts=[types.Part.from_text(text=user_input)]
+                        )
+                    ],
                     config=types.GenerateContentConfig(
-                        temperature=0.0,          # keep it deterministic for JSON
+                        temperature=0.0,          # deterministic JSON
                         max_output_tokens=512
                     )
                 )
 
+                # Extract response text
+                if response.candidates and response.candidates[0].content.parts:
+                    output_text = "".join(
+                        [p.text for p in response.candidates[0].content.parts if hasattr(p, "text")]
+                    )
+                else:
+                    output_text = "(No response text received.)"
+
                 # Show response
                 st.success("Response:")
-                st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+                st.code(output_text, language="json")
 
             except Exception as e:
-                st.error(f"Error: {e}")
+                st.error(f"❌ Error: {e}")
     else:
-        st.warning("Please enter a prompt first.")
+        st.warning("⚠️ Please enter a prompt first.")
