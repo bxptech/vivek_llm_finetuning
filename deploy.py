@@ -6,7 +6,7 @@ from google.genai import types
 PROJECT_ID = "738928595068"       # your GCP project ID
 LOCATION = "us-central1"          # region where you tuned the model
 
-# Fine-tuned model (replace with your actual model ID, not endpoint ID)
+# Fine-tuned model (your trained one)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
 
 # Base Gemini model for general conversation
