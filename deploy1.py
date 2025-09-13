@@ -5,7 +5,12 @@ from google.genai import types
 # --- Setup ---
 PROJECT_ID = "738928595068"
 LOCATION = "us-central1"
-MODEL_ENDPOINT = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
+
+# Fine-tuned model (task-specific)
+FINETUNED_MODEL = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
+
+# General-purpose Gemini model (not fine-tuned)
+GENERAL_MODEL = "text-bison-001"  # replace with your deployed general-purpose model if needed
 
 # --- Authenticate with API Key ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -25,25 +30,37 @@ st.write("Ask anything — casual, formal, greetings, or task-specific!")
 # Input box
 user_input = st.text_area("Your prompt", placeholder="Type something...")
 
+# Simple keyword-based detection of question type
+def is_casual_or_greeting(text):
+    keywords = ["hi", "hello", "hey", "how are you", "good morning", "good night", "what's up"]
+    return any(k in text.lower() for k in keywords)
+
+def is_task_specific(text):
+    # You can improve this with regex or keywords specific to your fine-tuned task
+    task_keywords = ["transaction", "amount", "transfer", "cash", "payment"]
+    return any(k in text.lower() for k in task_keywords)
+
 # Button
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Construct prompt with runtime instructions
-                prompt_text = (
-                    "You are an intelligent AI assistant. "
-                    "Analyze the user's question and respond appropriately:\n"
-                    "- If the question is casual, respond casually.\n"
-                    "- If the question is formal, respond formally.\n"
-                    "- If the question is a greeting, respond friendly.\n"
-                    "- If the question relates to your fine-tuned task (e.g., transactions), "
-                    "respond in the structured format learned from fine-tuning.\n\n"
-                    f"User: {user_input}\n"
-                    "Assistant:"
-                )
+                # Determine which model to use
+                if is_task_specific(user_input):
+                    model_to_use = FINETUNED_MODEL
+                    prompt_text = user_input  # fine-tuned model expects task prompt directly
+                else:
+                    model_to_use = GENERAL_MODEL
+                    # General model instructions for casual/formal/greetings
+                    prompt_text = (
+                        "You are a friendly and intelligent AI assistant. "
+                        "Answer casual questions casually, formal questions formally, "
+                        "and greetings appropriately.\n\n"
+                        f"User: {user_input}\n"
+                        "Assistant:"
+                    )
 
-                # Create user content
+                # Prepare content
                 user_prompt = types.Content(
                     role="user",
                     parts=[types.Part(text=prompt_text)]
@@ -51,7 +68,7 @@ if st.button("Generate"):
 
                 # Generate response
                 response = client.models.generate_content(
-                    model=MODEL_ENDPOINT,
+                    model=model_to_use,
                     contents=[user_prompt],
                     config=types.GenerateContentConfig(
                         temperature=0.7,
