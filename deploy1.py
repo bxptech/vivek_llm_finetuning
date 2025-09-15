@@ -6,13 +6,13 @@ from google.genai import types
 PROJECT_ID = "738928595068"
 LOCATION = "us-central1"
 
-# Fine-tuned model endpoint
-FINETUNED_MODEL = "projects/738928595068/locations/us-central1/endpoints/7079072574528815104"
+# Fine-tuned payment model
+FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
 
-# General-purpose Gemini model
-GENERAL_MODEL = "gemini-2.0-flash"
+# Base Gemini model
+BASE_MODEL = "publishers/google/models/gemini-1.5-pro"
 
-# --- Authenticate with API Key ---
+# --- Authenticate ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
     st.error("⚠️ Missing GOOGLE_CLOUD_API_KEY in Streamlit secrets.")
     st.stop()
@@ -22,77 +22,83 @@ client = genai.Client(
     api_key=st.secrets["GOOGLE_CLOUD_API_KEY"]
 )
 
-# --- Streamlit UI ---
-st.set_page_config(page_title="💡 Gemini Adaptive Assistant", page_icon="✨", layout="centered")
-st.title("💡 Gemini Adaptive Assistant")
-st.write("Ask anything — task-specific questions go to your **finetuned Gemini**, others to general Gemini!")
-
-user_input = st.text_area("Your prompt", placeholder="Type something...")
-
-# --- Detection: Ask general Gemini if question is in-domain ---
-def is_in_domain(question: str) -> bool:
-    """Use general Gemini model to classify if question fits the finetuned domain"""
-    classification_prompt = f"""
-    You are a classifier. 
-    Decide if the following user question is related to **finance, transactions, payments, or money transfers** (the fine-tuned model domain).
-    Answer only "YES" or "NO".
-
-    User question: {question}
-    """
-
-    user_prompt = types.Content(
-        role="user",
-        parts=[types.Part(text=classification_prompt)]
-    )
-
-    response = client.models.generate_content(
-        model=GENERAL_MODEL,
-        contents=[user_prompt],
-        config=types.GenerateContentConfig(
-            temperature=0,
-            max_output_tokens=5
+# --- Intent Classification ---
+def is_relevant_to_payment(query: str) -> bool:
+    """Ask the base model if the query is about payment/bill entry."""
+    try:
+        resp = client.models.generate_content(
+            model=BASE_MODEL,
+            contents=[types.Content(
+                role="user",
+                parts=[types.Part.from_text(
+                    f"Classify the following query: '{query}'. "
+                    "Answer only YES if it is about creating a payment/bill/transaction entry "
+                    "(structured JSON output). Otherwise answer NO."
+                )]
+            )],
+            config=types.GenerateContentConfig(
+                temperature=0.0,  # deterministic classification
+                max_output_tokens=5
+            )
         )
-    )
 
-    answer = "".join([c.text for c in response.candidates[0].content.parts if c.text]).strip().upper()
-    return answer.startswith("Y")
+        answer = "".join(
+            [c.text for c in resp.candidates[0].content.parts if hasattr(c, "text")]
+        ).strip().upper()
 
-# --- Generate Response ---
+        return answer.startswith("Y")
+    except Exception as e:
+        st.warning(f"Classification failed: {e}")
+        return False
+
+# --- Streamlit UI ---
+st.set_page_config(page_title="💡 Hybrid Gemini App", page_icon="✨", layout="centered")
+st.title("💡 Hybrid Gemini App")
+st.write("👉 Ask about **payments/bills** (JSON output from fine-tuned model) or chat casually (base Gemini).")
+
+# Input box
+user_input = st.text_area("Your prompt", placeholder="Type something in English or Telugu...")
+
+# Button
 if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                if is_in_domain(user_input):
-                    # Use fine-tuned model
-                    model_to_use = FINETUNED_MODEL
-                    prompt_text = user_input
+                # Decide which model to use
+                if is_relevant_to_payment(user_input):
+                    model = FINETUNED_MODEL
+                    st.info("✅ Using Fine-tuned Payment Model (JSON output)")
                 else:
-                    # Use general model
-                    model_to_use = GENERAL_MODEL
-                    prompt_text = (
-                        "You are a helpful, friendly AI assistant. "
-                        "Answer normally since this is outside the fine-tuned scope.\n\n"
-                        f"User: {user_input}\nAssistant:"
-                    )
+                    model = BASE_MODEL
+                    st.info("💬 Using Base Gemini Model (conversational output)")
 
-                user_prompt = types.Content(
-                    role="user",
-                    parts=[types.Part(text=prompt_text)]
-                )
-
+                # Generate response
                 response = client.models.generate_content(
-                    model=model_to_use,
-                    contents=[user_prompt],
+                    model=model,
+                    contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
                     config=types.GenerateContentConfig(
-                        temperature=0.7,
+                        temperature=0.3 if model == FINETUNED_MODEL else 0.7,
                         max_output_tokens=512
                     )
                 )
 
+                # Extract text parts safely
+                output_text = "".join(
+                    [c.text for c in response.candidates[0].content.parts if hasattr(c, "text")]
+                )
+
+                # Show response
                 st.success("Response:")
-                st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+                if model == FINETUNED_MODEL:
+                    # Try to display JSON nicely if structured
+                    if output_text.strip().startswith("{"):
+                        st.json(output_text)
+                    else:
+                        st.write(output_text)
+                else:
+                    st.write(output_text)
 
             except Exception as e:
-                st.error(f"Error: {e}")
+                st.error(f"❌ Error: {e}")
     else:
         st.warning("Please enter a prompt first.")
