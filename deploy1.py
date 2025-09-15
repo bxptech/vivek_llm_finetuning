@@ -6,11 +6,11 @@ from google.genai import types
 PROJECT_ID = "738928595068"
 LOCATION = "us-central1"
 
-# Fine-tuned payment model
+# Fine-tuned payment model (full path is required)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
 
-# Base Gemini model
-BASE_MODEL = "publishers/google/models/gemini-1.5-pro"
+# Base Gemini model (short name for Vertex AI)
+BASE_MODEL = "gemini-1.5-pro"
 
 # --- Authenticate ---
 if "GOOGLE_CLOUD_API_KEY" not in st.secrets:
@@ -31,9 +31,9 @@ def is_relevant_to_payment(query: str) -> bool:
             contents=[types.Content(
                 role="user",
                 parts=[types.Part.from_text(
-                    f"Classify the following query: '{query}'. "
-                    "Answer only YES if it is about creating a payment/bill/transaction entry "
-                    "(structured JSON output). Otherwise answer NO."
+                    text=f"Classify the following query: '{query}'. "
+                         "Answer only YES if it is about creating a payment/bill/transaction entry "
+                         "(structured JSON output). Otherwise answer NO."
                 )]
             )],
             config=types.GenerateContentConfig(
@@ -75,7 +75,10 @@ if st.button("Generate"):
                 # Generate response
                 response = client.models.generate_content(
                     model=model,
-                    contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
+                    contents=[types.Content(
+                        role="user",
+                        parts=[types.Part.from_text(text=user_input)]
+                    )],
                     config=types.GenerateContentConfig(
                         temperature=0.3 if model == FINETUNED_MODEL else 0.7,
                         max_output_tokens=512
@@ -90,9 +93,8 @@ if st.button("Generate"):
                 # Show response
                 st.success("Response:")
                 if model == FINETUNED_MODEL:
-                    # Try to display JSON nicely if structured
                     if output_text.strip().startswith("{"):
-                        st.json(output_text)
+                        st.json(output_text)  # pretty JSON
                     else:
                         st.write(output_text)
                 else:
