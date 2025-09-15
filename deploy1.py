@@ -9,7 +9,7 @@ LOCATION = "us-central1"          # region where you tuned the model
 # Fine-tuned model (for payment/billing questions)
 FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
 
-# Base models (choose one that works for your project)
+# Base models (Gemini 2.x are supported — 1.5 is deprecated)
 BASE_MODELS = [
     "publishers/google/models/gemini-2.0-flash",
     "publishers/google/models/gemini-2.0-pro",
@@ -55,6 +55,7 @@ if st.button("Generate"):
                     model = None
                     for candidate_model in BASE_MODELS:
                         try:
+                            # Just assign the model — no pre-test call needed
                             model = candidate_model
                             st.info(f"Using **Base Gemini Model**: {model}")
                             break
@@ -70,7 +71,7 @@ if st.button("Generate"):
                     contents=[
                         types.Content(
                             role="user",
-                            parts=[types.Part.from_text(user_input)]  # ✅ FIXED
+                            parts=[{"text": user_input}]  # ✅ safe universal format
                         )
                     ],
                     config=types.GenerateContentConfig(
@@ -84,7 +85,15 @@ if st.button("Generate"):
                 output = "".join(
                     [c.text for c in response.candidates[0].content.parts if c.text]
                 )
-                st.write(output)
+
+                # If payment query, show as JSON (since finetuned model likely outputs structured data)
+                if is_payment_query(user_input):
+                    try:
+                        st.json(output)
+                    except Exception:
+                        st.write(output)
+                else:
+                    st.write(output)
 
             except Exception as e:
                 st.error(f"Error: {e}")
