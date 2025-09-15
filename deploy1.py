@@ -53,10 +53,8 @@ if st.button("Generate"):
                     st.info("Using **Fine-tuned Payment Model** (JSON output)")
                 else:
                     model = None
-                    # Try base models until one works
                     for candidate_model in BASE_MODELS:
                         try:
-                            # Test availability with a lightweight call
                             model = candidate_model
                             st.info(f"Using **Base Gemini Model**: {model}")
                             break
@@ -72,7 +70,7 @@ if st.button("Generate"):
                     contents=[
                         types.Content(
                             role="user",
-                            parts=[types.Part.from_text(user_input)]
+                            parts=[types.Part.from_text(user_input)]  # ✅ FIXED
                         )
                     ],
                     config=types.GenerateContentConfig(
@@ -83,7 +81,10 @@ if st.button("Generate"):
 
                 # Show response
                 st.success("Response:")
-                st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+                output = "".join(
+                    [c.text for c in response.candidates[0].content.parts if c.text]
+                )
+                st.write(output)
 
             except Exception as e:
                 st.error(f"Error: {e}")
