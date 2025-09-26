@@ -3,43 +3,41 @@ from google import genai
 from google.genai import types
 from google.oauth2 import service_account
 
-# --- Setup ---
-PROJECT_ID = "738928595068"       # your GCP project ID
-LOCATION = "us-central1"          # region where you tuned the model
+# ----------------------------
+# CONFIGURATION
+# ----------------------------
+PROJECT_ID = "myfinetuning-project"       # your GCP project ID
+LOCATION = "us-central1"                  # region
+FINETUNED_MODEL = (
+    "projects/myfinetuning-project/locations/us-central1/models/vivek_finetuning5"
+)
 
-# Fine-tuned model (your trained one)
-FINETUNED_MODEL = "projects/738928595068/locations/us-central1/models/7079072574528815104"
-
-# Base Gemini model for general conversation
-BASE_MODEL = "publishers/google/models/gemini-1.5-pro"
-
-# --- Authenticate with Service Account ---
-if "gcp_service_account" not in st.secrets:
-    st.error("⚠️ Missing service account JSON in Streamlit secrets.")
+# ----------------------------
+# AUTHENTICATION
+# ----------------------------
+# Load service account from Streamlit secrets
+# (put service-account.json contents in .streamlit/secrets.toml as SERVICE_ACCOUNT_KEY)
+if "SERVICE_ACCOUNT_KEY" not in st.secrets:
+    st.error("⚠️ Missing SERVICE_ACCOUNT_KEY in Streamlit secrets.")
     st.stop()
 
-# Build credentials from JSON in st.secrets
 credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
+    st.secrets["SERVICE_ACCOUNT_KEY"]
 )
 
 client = genai.Client(
     vertexai=True,
     project=PROJECT_ID,
     location=LOCATION,
-    credentials=credentials
+    credentials=credentials,
 )
 
-# --- Intent Check ---
-def is_payment_query(text: str) -> bool:
-    keywords = ["payment", "bill", "entry", "invoice", "transaction"]
-    return any(kw in text.lower() for kw in keywords)
-
-# --- Streamlit UI ---
-st.set_page_config(page_title="💡 Hybrid Gemini App", page_icon="✨", layout="centered")
-
-st.title("💡 Hybrid Gemini App")
-st.write("Ask me about **payments/bills** (JSON output) or just chat casually (normal text).")
+# ----------------------------
+# STREAMLIT UI
+# ----------------------------
+st.set_page_config(page_title="💡 Fine-Tuned Gemini App", page_icon="✨", layout="centered")
+st.title("💡 Fine-Tuned Gemini App")
+st.write("This app runs on your **Gemini fine-tuned model** in Vertex AI.")
 
 # Input box
 user_input = st.text_area("Your prompt", placeholder="Type something...")
@@ -49,25 +47,17 @@ if st.button("Generate"):
     if user_input.strip():
         with st.spinner("Thinking..."):
             try:
-                # Route query to correct model
-                if is_payment_query(user_input):
-                    model = FINETUNED_MODEL
-                    st.info("Using **Fine-tuned Payment Model** (JSON output)")
-                else:
-                    model = BASE_MODEL
-                    st.info("Using **Base Gemini Model** (conversational output)")
-
-                # Generate response
+                # Send request to fine-tuned model
                 response = client.models.generate_content(
-                    model=model,
-                    contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
+                    model=FINETUNED_MODEL,
+                    contents=[types.Content(role="user", parts=[types.Part.from_text(user_input)])],
                     config=types.GenerateContentConfig(
                         temperature=0.7,
-                        max_output_tokens=512
-                    )
+                        max_output_tokens=512,
+                    ),
                 )
 
-                # Show response
+                # Display output
                 st.success("Response:")
                 st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
 
