@@ -156,7 +156,7 @@ client = genai.Client(
 )
 
 # Select your model
-MODEL_NAME = "projects/myfinetuning-project/locations/us-central1/models/vivek_finetuning5"
+MODEL_NAME = "projects/myfinetuning-project/locations/us-central1/models/vivek_finetuning6"
 
 # User input
 user_input = st.text_input("💬 Enter your message:")
