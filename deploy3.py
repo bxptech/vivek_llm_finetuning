@@ -2,7 +2,6 @@ import streamlit as st
 from google import genai
 from google.genai import types
 from google.oauth2 import service_account
-
 # --- Setup ---
 PROJECT_ID = "myfinetuning-project"   # project_id from your service account
 LOCATION = "us-central1"              # region where you tuned the model
