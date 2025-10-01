@@ -2,9 +2,10 @@ import streamlit as st
 from google import genai
 from google.genai import types
 from google.oauth2 import service_account
-# --- Setup ---
-PROJECT_ID = "myfinetuning-project"   # project_id from your service account
-LOCATION = "us-central1"              # region where you tuned the model
+
+# --- Config ---
+PROJECT_ID = "myfinetuning-project"   # From your service account
+LOCATION = "us-central1"              # Region of your tuned model
 MODEL_ENDPOINT = "projects/myfinetuning-project/locations/us-central1/endpoints/7079072574528815104"
 
 # --- Authenticate with Service Account ---
@@ -13,24 +14,28 @@ try:
     service_account_info = st.secrets["service_account"]
     credentials = service_account.Credentials.from_service_account_info(service_account_info)
 
+    # Create a GenAI client with Vertex AI support
     client = genai.Client(
         vertexai=True,
+        project=PROJECT_ID,
+        location=LOCATION,
         credentials=credentials
     )
+
 except Exception as e:
     st.error(f"⚠️ Authentication error: {e}")
     st.stop()
 
-# --- Streamlit UI ---
-st.set_page_config(page_title="My Gemini App", page_icon="✨", layout="centered")
+# --- Streamlit UI Setup ---
+st.set_page_config(page_title="✨ Gemini Fine-Tuned Demo", page_icon="🤖", layout="centered")
 
 st.title("💡 Fine-Tuned Gemini Demo")
-st.write("Ask your fine-tuned Gemini model anything:")
+st.write("Ask your fine-tuned Gemini model anything below:")
 
-# Input box
+# User input
 user_input = st.text_area("Your prompt", placeholder="Type something...")
 
-# Predefined common question responses
+# Predefined friendly responses
 common_responses = {
     "hello": "Hi there! How’s your day going?",
     "hi": "Hello! Hope you're doing well!",
@@ -41,35 +46,43 @@ common_responses = {
     "good night": "Good night! Sleep well!"
 }
 
-# Button
-if st.button("Generate"):
+# --- Generate Response ---
+if st.button("✨ Generate Response"):
     if user_input.strip():
-        # Check for common questions first (case insensitive)
         lower_input = user_input.strip().lower()
-        matched = False
-        for key in common_responses:
-            if key in lower_input:
-                st.success("Response:")
-                st.write(common_responses[key])
-                matched = True
-                break
 
-        # If not a common question, call the fine-tuned model
-        if not matched:
-            with st.spinner("Thinking..."):
+        # Check for predefined responses
+        if lower_input in common_responses:
+            st.success("Response:")
+            st.write(common_responses[lower_input])
+        else:
+            with st.spinner("Thinking... 🤔"):
                 try:
                     response = client.models.generate_content(
                         model=MODEL_ENDPOINT,
-                        contents=[types.Content(role="user", parts=[types.Part.from_text(text=user_input)])],
+                        contents=[
+                            types.Content(
+                                role="user",
+                                parts=[types.Part.from_text(text=user_input)]
+                            )
+                        ],
                         config=types.GenerateContentConfig(
                             temperature=0.7,
                             max_output_tokens=512
                         )
                     )
-                    # Show response
-                    st.success("Response:")
-                    st.write("".join([c.text for c in response.candidates[0].content.parts if c.text]))
+
+                    # Extract response safely
+                    if response and response.candidates:
+                        text_out = "".join(
+                            part.text for part in response.candidates[0].content.parts if part.text
+                        )
+                        st.success("Response:")
+                        st.write(text_out)
+                    else:
+                        st.warning("⚠️ No response generated. Try another input.")
+
                 except Exception as e:
-                    st.error(f"Error: {e}")
+                    st.error(f"❌ Error while generating: {e}")
     else:
-        st.warning("Please enter a prompt first.")
+        st.warning("⚠️ Please enter a prompt first.")
